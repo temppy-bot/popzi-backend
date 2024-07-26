@@ -28,7 +28,9 @@ SECRET_KEY = 'django-insecure-!1z8%7^o!cn4+dppy9=8lrifsd%m2je31!&4w*2f$^v83%c@p$
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'popzi-backend.onrender.com'
+    'popzi-backend.onrender.com',
+    'localhost',
+    '127.0.0.1'
 ]
 
 
