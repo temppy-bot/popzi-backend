@@ -27,7 +27,9 @@ SECRET_KEY = 'django-insecure-!1z8%7^o!cn4+dppy9=8lrifsd%m2je31!&4w*2f$^v83%c@p$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'popzi-backend.onrender.com'
+]
 
 
 # Application definition
