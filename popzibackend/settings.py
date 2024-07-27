@@ -29,21 +29,22 @@ SECRET_KEY = 'django-insecure-!1z8%7^o!cn4+dppy9=8lrifsd%m2je31!&4w*2f$^v83%c@p$
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'popzi-backend.onrender.com',
+    '127.0.0.1',
+    'popzi-backend-1.onrender.com',
 ]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'notes',
+    'problems',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'notes',
-    'problems',
     'corsheaders',
     'rest_framework',
 ]
