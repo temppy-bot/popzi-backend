@@ -9,7 +9,7 @@ def query_openai(prompt):
     try:
         response = openai.chat.completions.create(
             model="gpt-4-turbo-preview",
-            temperature=0.5,
+            temperature=1,
             max_tokens=4096,
             top_p=1.0,
             frequency_penalty=0.0,
@@ -22,24 +22,24 @@ Your task is to generate AI multiple-choice questions based on a given set of no
 
 Here are the project requirements -
 
-The software, titled "Poppy," aims to create 5 AI multiple-choice questions based on a student's selected notes. Once an answer is selected, a succinct explanation should be provided on why it's either correct or incorrect. For every correct answer, the user earns a point, and accumulated points can be redeemed for gift cards to incentivize studying.
+The software, titled "Poppy," aims to create 2 AI multiple-choice questions which have 3-5 options based on a student's selected notes. Once an answer is selected, a succinct explanation should be provided on why it's either correct or incorrect. For every correct answer, the user earns a point, and accumulated points can be redeemed for gift cards to incentivize studying.
 
 Please generate questions based on the following notes -
 
 Notes Title: >>__
 Notes Content: >>'''{prompt}'''
 When generating questions, keep the following in mind -
-Ensure the questions are relevant to the content and cover key concepts
-Use simple and clear language
-Make the correct answer challenging but not ambiguous
-Provide explanations for each option why it is wrong and correct not bundle two options that are similar
-Ensure the questions are engaging and informative
-If possible, provide an example of a generated question to demonstrate your approach.
-Must be separated into four sections. Question, Correct Answer, Explanation, Why Wrong
-                Describe the correct option name as this option in Explanation section.
-                Include markings to facilitate recognizing each section like QUESTIONSTART, QUESTIONEND, CORRECTANSWERSTART, CORRECTANSWEREND,
-                EXPLANATIONSTART, EXPLANATIONEND, WHYWRONGSTART, WHYWRONGEND.
-                Include only above four sections. Don't include any unnecessary explanation."""},
+-Ensure the questions are relevant to the content and cover key concepts
+-Use simple and clear language
+-Make the correct answer challenging but not ambiguous
+-Provide explanations for each option why it is wrong and correct not bundle two options that are similar
+-Ensure the questions are engaging and informative
+-If possible, provide an example of a generated question to demonstrate your approach.
+-Must be separated into four sections. Question, Correct Answer, Explanation, Why Wrong.
+-Describe the correct option name as this option in Explanation section.
+-Split each WhyWrong explanation by enter.
+-Include markings to facilitate recognizing each section by using QUESTIONSTART, QUESTIONEND, CORRECTANSWERSTART, CORRECTANSWEREND, EXPLANATIONSTART, EXPLANATIONEND, WHYWRONGSTART, WHYWRONGEND.
+-Include only above four sections. Don't include any unnecessary explanation."""},
             ]
         )
         return response.choices[0].message.content

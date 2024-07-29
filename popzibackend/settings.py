@@ -19,6 +19,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 dotenv_path = os.path.join(BASE_DIR, '.env')
 load_dotenv(dotenv_path)
 OPKEY = os.getenv('OPKEY')
+print(OPKEY)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -26,9 +27,10 @@ OPKEY = os.getenv('OPKEY')
 SECRET_KEY = 'django-insecure-!1z8%7^o!cn4+dppy9=8lrifsd%m2je31!&4w*2f$^v83%c@p$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
+    'localhost',
     '127.0.0.1',
     'popzi-backend-1.onrender.com',
 ]
@@ -129,6 +131,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 CORS_ORIGIN_ALLOW_ALL = True
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
+# and renames the files with unique names for each version to support long-term caching
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 if not DEBUG:
     # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
